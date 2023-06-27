@@ -1,9 +1,13 @@
+# Top-level configuration
 name = "cf-workers-status-page"
+main = "index.js"
+compatibility_date = "2022-07-12"
 workers_dev = true
-account_id = ""
-type = "webpack"
-webpack_config = "node_modules/flareact/webpack"
-compatibility_date = "2021-07-23"
+
+[env.production]
+kv_namespaces = [
+  { binding = "cf-workers-status-page", id = "6f1034edf2fa40cfb7319e76839ce528" }
+]
 
 [triggers]
 crons = ["* * * * *"]
@@ -12,8 +16,3 @@ crons = ["* * * * *"]
 bucket = "out"
 entry-point = "./"
 
-# uncomment and adjust following if you are not using GitHub Actions
-#[env.production]
-#kv-namespaces = [{binding="KV_STATUS_PAGE", id="xxxx", preview_id=""}]
-#zone_id="xxx"
-#route="xxx"
