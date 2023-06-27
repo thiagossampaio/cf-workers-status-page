@@ -14,5 +14,4 @@ crons = ["* * * * *"]
 
 [site]
 bucket = "out"
-entry-point = "./"
 
